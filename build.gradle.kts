@@ -9,11 +9,18 @@ group = "org.example"
 version = "1.0-SNAPSHOT"
 
 repositories {
+    maven {
+        setUrl("https://maven.aliyun.com/repository/gradle-plugin")
+    }
     mavenCentral()
 }
 
 dependencies {
+    implementation("mysql:mysql-connector-java:8.0.30")
+    implementation("mysql:mysql-connector-mxj:5.0.12")
     testImplementation(kotlin("test"))
+    implementation(kotlin("reflect"))
+    implementation(kotlin("script-runtime"))
 }
 
 tasks.test {
@@ -25,5 +32,5 @@ tasks.withType<KotlinCompile> {
 }
 
 application {
-    mainClass.set("MainKt")
+    mainClass.set("Main.kt")
 }
